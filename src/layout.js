@@ -1,4 +1,6 @@
 import './style.css';
+import inboxIcon from './inboxIcon.svg';
+
 
 export function createLayout(){
     const main = document.createElement("div");
@@ -27,12 +29,8 @@ export function createSidebar(){
     const todayLink = document.createElement("a");
     const todayLinkText = document.createTextNode("Today");
     todayLink.appendChild(todayLinkText);
-    const upcomingLink = document.createElement("a");
-    const upcomingLinkText = document.createTextNode("Upcoming");
-    upcomingLink.appendChild(upcomingLinkText);
     sidebarMenu1.appendChild(inboxLink);
     sidebarMenu1.appendChild(todayLink);
-    sidebarMenu1.appendChild(upcomingLink);
     sidebarContainer.appendChild(sidebar);
     sidebar.appendChild(sidebarMenu1);
     const projects = document.createTextNode("Projects");
@@ -40,17 +38,21 @@ export function createSidebar(){
 
 }
 
-export function createContentLayout(){
+export function createInboxLayout(){
     const content = document.createElement("div");
     content.setAttribute("id", "content");
+
     const headerContainer = document.createElement("div")
     headerContainer.setAttribute("id", "header-container");
+
     const projectsContainer = document.createElement("div");
     projectsContainer.setAttribute("id", "projects-container");
+
     const addTaskContainer = document.createElement("div");
     addTaskContainer.classList.add("addtask-container");
     const addTaskContainerText = document.createTextNode("+ Add Task");
     addTaskContainer.appendChild(addTaskContainerText);
+
 
 
     const contentContainer = document.getElementById("content-container");
@@ -58,17 +60,14 @@ export function createContentLayout(){
     content.appendChild(headerContainer);
     content.appendChild(projectsContainer);
     content.appendChild(addTaskContainer);
-
-}
-
-export function createInboxLayout (){
+   
     const inboxHeaderText = document.createTextNode("Inbox");
     const inboxHeader = document.createElement("h1");
     inboxHeader.appendChild(inboxHeaderText);
-    const contentHeader = document.getElementById("header-container");
-    contentHeader.appendChild(inboxHeader);
+    headerContainer.appendChild(inboxHeader);
 
 }
+
 
 /*export const createProjectLayout = (project) => {
     const projectTitle = document.createTextNode(project.name);
@@ -86,12 +85,38 @@ export const createTodoElement = (todo) => {
     const title = document.createTextNode(todo.title);
     const todoTitle = document.createElement("p");
     todoTitle.appendChild(title);
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+
     const todoElement = document.createElement("div");
     todoElement.classList.add("todo-element");
+    todoElement.appendChild(checkbox);
     todoElement.appendChild(todoTitle);
     const projectsContainer = document.getElementById("projects-container")
     projectsContainer.appendChild(todoElement);
 
+    checkbox.addEventListener("click", (e) => {
+        if (checkbox.checked == true){
+            checkbox.parentElement.classList.toggle("strike");
+          } else {
+            checkbox.parentElement.classList.toggle("strike");
+          }
+    
+    })
+
+   // todoElement.addEventListener("click", expandTodo);
+
+
+    
     return todoElement
 }
+/*
+export function expandTodo(todo){
+    const todoModal = document.createElement("div");
+    todoModal.classList.add("modal");
+    
+    document.body.appendChild(todoModal);
+
+}*/
 

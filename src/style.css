@@ -8,6 +8,38 @@ h1{
     font-size:1.3em;
 }
 
+.strike {
+    text-decoration: line-through;
+}
+
+.icon {
+    width:10px;
+}
+
+.modal {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 450px;
+    padding: 1.3rem;
+    min-height: 250px;
+
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+
+  }
+
+.hidden {
+    display:none;
+}
+
 #main{
     width:100vw;
     height:100vh;
@@ -40,8 +72,7 @@ h1{
 
 #content-container{
     background-color:#ffffff; 
-    padding-left:100px;
-    padding-top:50px;
+    padding:50px 100px 50px 100px;
 
 }
 
@@ -63,4 +94,9 @@ h1{
 
 .todo-element{
     cursor:pointer;
+    border-bottom: 1px solid #f1f5f9;
+    display:flex;
+    gap:5px;
 }
+
+

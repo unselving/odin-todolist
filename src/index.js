@@ -3,13 +3,15 @@ import {createProject, addProjectToAll, addTodoToProject} from './createProject.
 import * as layout from './layout.js';
 layout.createLayout();
 layout.createSidebar();
-layout.createContentLayout();
+//layout.createContentLayout();
 layout.createInboxLayout();
 const defaultProject = createProject("default");
 const date = new Date();
-const Todo = createTodo("test1", "test2", date, "test");
-const allProjects = [];
+const Todo = createTodo("Laundry", "test2", date, "test");
+/*const allProjects = [];
 addTodoToProject(defaultProject, Todo);
-addProjectToAll(allProjects, defaultProject);
+addProjectToAll(allProjects, defaultProject);*/
+const Todo2 = createTodo("Read book", "test2", date, "test");
 layout.createTodoElement(Todo);
+layout.createTodoElement(Todo2);
 
